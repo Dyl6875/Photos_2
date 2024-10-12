@@ -65,17 +65,35 @@ h1 {
     gap: 20px;
 }
 
-.photo-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+.photo-item {
+    position: relative; /* Nécessaire pour positionner le copyright */
 }
 
-.photo-grid img:hover {
-    transform: scale(1.05);
+/* Animation de l'image au survol */
+.photo-canvas {
+    width: 100%;
+    height: auto; /* Ajuster la hauteur automatiquement */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transition pour l'effet d'animation */
+}
+
+/* Effet au survol */
+.photo-canvas:hover {
+    transform: scale(1.05); /* Agrandit légèrement l'image au survol */
+}
+
+/* Copyright sur les photos */
+.photo-copyright {
+    position: absolute; /* Position absolue pour le placer sur l'image */
+    bottom: 10px; /* Espace en bas */
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white; /* Couleur du texte */
+    font-size: 1.5rem; /* Taille de la police pour le copyright */
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour améliorer la lisibilité */
+    padding: 5px; /* Ajoute de l'espace autour du texte */
 }
 
 /* Modale pour agrandir l'image */
@@ -92,14 +110,32 @@ h1 {
     align-items: center; /* Centrer verticalement */
 }
 
-.modal-content {
-    max-width: 80%;
+.modal-content-wrapper {
+    position: relative; /* Pour contenir le copyright */
+    max-width: 80%; /* Limite la largeur pour éviter les débordements */
     max-height: 80%; /* Limite la hauteur pour éviter le dépassement */
+    display: flex;
+    flex-direction: column; /* Aligne le copyright en dessous de l'image */
 }
 
+.modal-content {
+    width: 100%; /* Prendre toute la largeur de l'élément parent */
+    height: auto; /* Ajuste la hauteur automatiquement */
+    object-fit: contain; /* Garde les proportions de l'image */
+}
+
+.modal-copyright {
+    text-align: center;
+    color: white; /* Couleur du texte */
+    font-size: 1.5rem; /* Taille de la police pour le copyright dans la modale */
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour améliorer la lisibilité */
+    padding: 10px; /* Ajoute de l'espace autour du texte */
+}
+
+/* Bouton de fermeture */
 .close {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 35px;
     color: white;
     font-size: 40px;
