@@ -3,42 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mes Photos de Voitures</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Mes Photos</title>
+    <link rel="stylesheet" href="styles/styles2.css"> <!-- Assure-toi que le lien est correct -->
 </head>
 <body>
+    <!-- Menu de navigation -->
+    <nav>
+        <ul>
+            <li><a href="#">Tout</a></li>
+            <li><a href="#">Astrophotographie</a></li>
+            <li><a href="#">Automobile</a></li>
+            <li><a href="#">City</a></li>
+            <li><a href="#">Événements</a></li>
+            <li><a href="#">Portrait</a></li>
+            <li><a href="#">Sport</a></li>
+            <li><a href="#">Urbex</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête du site -->
     <header>
         <h1>Mes Photos</h1>
     </header>
 
+    <!-- Section des photos -->
     <section class="gallery">
-        <div class="photo">
-            <img src="img/IMG_3284.jpeg" alt="Voiture 1">
+        <div class="photo-grid">
+            <img src="img/IMG_3170.jpeg" alt="Photo 1" onclick="openModal(this)">
+            <img src="img/IMG_3284.jpeg" alt="Photo 2" onclick="openModal(this)">
+            <img src="img/IMG_3287.jpeg" alt="Photo 3" onclick="openModal(this)">
+            <img src="img/IMG_3288.jpeg" alt="Photo 4" onclick="openModal(this)">
+            <img src="img/unnamed (1).jpg" alt="Photo 5" onclick="openModal(this)">
+            <img src="img/unnamed (2).jpg" alt="Photo 6" onclick="openModal(this)">
+            <img src="img/unnamed (3).jpg" alt="Photo 7" onclick="openModal(this)">
+            <img src="img/unnamed.jpg" alt="Photo 8" onclick="openModal(this)">
         </div>
-        <div class="photo">
-            <img src="img/IMG_3287.jpeg" alt="Voiture 2">
-        </div>
-        <div class="photo">
-            <img src="img/IMG_3288.jpeg" alt="Voiture 3">
-        </div>
-        <div class="photo">
-            <img src="img/unnamed (1).jpg" alt="Voiture 4">
-        </div>
-        <div class="photo">
-            <img src="img/unnamed (2).jpg" alt="Voiture 5">
-        </div>
-        <div class="photo">
-            <img src="img/unnamed (3).jpg" alt="Voiture 6">
-        </div>
-        <div class="photo">
-            <img src="img/unnamed.jpg" alt="Voiture 6">
-        </div>
-        <!-- Ajoute plus de photos ici -->
     </section>
 
+    <!-- Modale pour agrandir les images -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Pied de page -->
     <footer>
-        <p>© 2024 - Mon Garage Futuriste</p>
+        <p>&copy; 2024 - Mes Photos de Voitures</p>
     </footer>
+
+    <!-- JavaScript pour la modale et l'événement "Escape" -->
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            document.body.classList.add("no-scroll"); // Empêche le scroll
+            modal.style.display = "flex"; // Modale centrée avec flexbox
+            modalImg.src = element.src;
+
+            // Ajoute un écouteur d'événements pour détecter la touche "Escape"
+            document.addEventListener('keydown', handleEscape);
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            document.body.classList.remove("no-scroll"); // Réactive le scroll
+            modal.style.display = "none";
+
+            // Supprime l'écouteur d'événements une fois la modale fermée
+            document.removeEventListener('keydown', handleEscape);
+        }
+
+        // Fonction qui détecte si la touche "Escape" est pressée
+        function handleEscape(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
