@@ -1,0 +1,92 @@
+/* Style global du corps avec un dégradé futuriste et des animations subtiles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #001f3f, #1a75ff);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Style pour l'en-tête avec un effet néon */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff, 0 0 20px #00b3cc;
+    font-weight: bold;
+    margin: 0;
+    animation: glow 2s infinite alternate;
+}
+
+/* Animation d'effet néon sur le titre */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00e5ff, 0 0 20px #00b3cc;
+    }
+    to {
+        text-shadow: 0 0 20px #00e5ff, 0 0 40px #00b3cc;
+    }
+}
+
+/* Style de la galerie en grille */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Pour que les images se répartissent sur plusieurs lignes */
+    justify-content: center; /* Centrer les images */
+    gap: 10px; /* Espace entre les images */
+    padding: 40px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* Style des photos avec un effet futuriste */
+.photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 229, 255, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 20%; /* Chaque image prend 20% de la largeur */
+    max-width: 20%; /* Limite la largeur maximale à 20% */
+}
+
+.photo img {
+    width: 100%;
+    height: auto; /* Maintient le ratio des images */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo:hover img {
+    transform: scale(1.1);
+}
+
+.photo:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 229, 255, 1);
+}
+
+/* Pied de page avec un effet néon subtil */
+footer {
+    margin-top: auto;
+    padding: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: #00e5ff;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px #00e5ff, 0 0 10px #00b3cc;
+}
