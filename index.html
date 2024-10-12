@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Photos</title>
-    <link rel="stylesheet" href="styles/styles2.css"> <!-- Assurez-vous que le lien est correct -->
-    <script src="script/script.js" defer></script> <!-- Lien vers votre script -->
+    <link rel="stylesheet" href="styles/styles2.css"> <!-- Assure-toi que le lien est correct -->
+    <script src="script/script.js" defer></script> <!-- Lien vers ton script -->
 </head>
 <body>
     <!-- Menu de navigation -->
@@ -30,89 +30,28 @@
     <!-- Section des photos -->
     <section class="gallery">
         <div class="photo-grid">
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/IMG_6076.jpeg" alt="Photo 1" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/IMG_3284.jpeg" alt="Photo 2" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/IMG_3287.jpeg" alt="Photo 3" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/IMG_3288.jpeg" alt="Photo 4" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/unnamed (1).jpg" alt="Photo 5" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/unnamed (2).jpg" alt="Photo 6" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/unnamed (3).jpg" alt="Photo 7" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/unnamed.jpg" alt="Photo 8" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
-            <div class="photo-item">
-                <img class="photo-canvas" src="img/IMG_3170.jpeg" alt="Photo 9" onclick="openModal(this)">
-                <div class="photo-copyright">© 2024 - Turbo Thrill</div>
-            </div>
+            <img src="img/IMG_6076.jpeg" alt="Photo 1" onclick="openModal(this)">
+            <img src="img/IMG_3284.jpeg" alt="Photo 2" onclick="openModal(this)">
+            <img src="img/IMG_3287.jpeg" alt="Photo 3" onclick="openModal(this)">
+            <img src="img/IMG_3288.jpeg" alt="Photo 4" onclick="openModal(this)">
+            <img src="img/unnamed (1).jpg" alt="Photo 5" onclick="openModal(this)">
+            <img src="img/unnamed (2).jpg" alt="Photo 6" onclick="openModal(this)">
+            <img src="img/unnamed (3).jpg" alt="Photo 7" onclick="openModal(this)">
+            <img src="img/unnamed.jpg" alt="Photo 8" onclick="openModal(this)">
+            <img src="img/IMG_3170.jpeg" alt="Photo 9" onclick="openModal(this)">
         </div>
     </section>
 
     <!-- Modale pour agrandir les images -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-content-wrapper">
-            <img class="modal-content" id="modalImage" alt="Image Agrandie">
-            <div class="modal-copyright" id="modalCopyright">© 2024 - Turbo Thrill</div>
-        </div>
+        <img class="modal-content" id="modalImage">
+        <div class="copyright">© 2024 - Turbo Thrill</div>
     </div>
 
     <!-- Pied de page -->
     <footer>
         <p>&copy; 2024 - Turbo Thrill</p>
     </footer>
-
-    <!-- JavaScript pour la modale et l'événement "Escape" -->
-    <script>
-        function openModal(element) {
-            var modal = document.getElementById("imageModal");
-            var modalImg = document.getElementById("modalImage");
-            var modalCopyright = document.getElementById("modalCopyright");
-            document.body.classList.add("no-scroll"); // Empêche le scroll
-            modal.style.display = "flex"; // Modale centrée avec flexbox
-            modalImg.src = element.src;
-            modalCopyright.textContent = element.nextElementSibling.textContent; // Affiche le copyright de l'image
-
-            // Ajoute un écouteur d'événements pour détecter la touche "Escape"
-            document.addEventListener('keydown', handleEscape);
-        }
-
-        function closeModal() {
-            var modal = document.getElementById("imageModal");
-            document.body.classList.remove("no-scroll"); // Réactive le scroll
-            modal.style.display = "none";
-
-            // Supprime l'écouteur d'événements une fois la modale fermée
-            document.removeEventListener('keydown', handleEscape);
-        }
-
-        // Fonction qui détecte si la touche "Escape" est pressée
-        function handleEscape(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        }
-    </script>
 </body>
 </html>
